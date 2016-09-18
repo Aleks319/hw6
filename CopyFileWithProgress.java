@@ -10,17 +10,13 @@ public class CopyFileWithProgress {
             RandomAccessFile rafOut = new RandomAccessFile("D:\\Qq.mp4", "rw");
 
             ReadWrite rw = new ReadWrite(raf, rafOut, 8192, 0, raf.length());
-            long s = 0;
             try {
-                s = System.currentTimeMillis();
                 rw.start();
                 rw.join();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
             System.out.println("100% copied!");
-            long e = System.currentTimeMillis();
-            System.out.println(e-s);
         } catch (IOException e) {
             e.printStackTrace();
         }
